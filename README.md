@@ -1,4 +1,4 @@
-# Capybarista Group <p> *Object Detection One Peice* </p>
+# Capybarista Group <p> *Object Detection One Piece* </p>
 
 # 1. Overview 
 Data  จำนวน 1182 รูป ประกอบก้วย 9 คลาสดังนี้
@@ -15,7 +15,7 @@ Data  จำนวน 1182 รูป ประกอบก้วย 9 คลา�
 แบ่งเป็น Train:Test:Split   70 : 20 : 10
 
 กระบวนการ Create Dataset ด้วย Roboflow มีดังนี้
-1. PREPROCESSING
+1. PRE-PROCESSING
     - Auto-Orient: Applied
     - Resize: Stretch to 416xv416
     - Tile: 2 rows x 2 columns
