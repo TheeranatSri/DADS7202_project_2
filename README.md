@@ -21,41 +21,37 @@ by Capybarista Team
 - Alternative model (Balance between score and running time) = Yolov5l - Weight True Freeze 10
 
 # Introduction:
-- Object detection: Object detection is a computer vision technique that allows us to identify and locate objects in an image or video. 
-With this kind of identification and localization, object detection can be used to count objects in a scene and determine and track their precise locations, all while accurately labeling them.
-The comparison between image classification, object detection and instance segmentation shown in below.
+- Object detection is a computer vision technique that allows us to recognize and locate objects in images or videos. Object detection can be used to count objects in a scene and determine and track their precise locations, all while accurately labeling them, using this type of identification and localization. 
+Below is a comparison of image classification, object detection, and instance segmentation.
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Picture1.png"> </span>
 
 from: Standford University 2016 winter lectures CS231n Fei-Fei Li & Andrej Karpathy & Justin Johnson
 
-- roboflow: Roboflow is a computer vision platform that allows users to build computer vision models faster and more accurately through the provision of better data collection, preprocessing, 
-and model training techniques. Roboflow allows users to upload custom datasets, draw annotations, modify image orientations, resize images, modify image contrast and perform data augmentation. 
-It can also be used to train models.
+- Roboflow is a computer vision platform that enables users to build computer vision models faster and more accurately by providing improved data collection, preprocessing, and model training techniques. Roboflow allows users to upload custom datasets, draw annotations, change image orientations, resize images, change image contrast, and perform data augmentation. It can also be used to train models.
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/roboflow.jpg"> </span>
 
-Image augmentation is an efficacious technique when we don’t have an ample amount of data for training a deep learning model. 
-Our team do Image augmentation with roboflow (due to time limitation, we set criteria of image augmentation as default of roboflow). Following figure is image augmentation options in roboflow.
+Image augmentation is an efficacious technique when we don’t have an ample amount of data for training a deep learning model. Our team uses Roboflow to enhance images (due to time limitation, we set criteria of image augmentation as default of Roboflow). The image augmentation options in Roboflow are depicted in the figure below.
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/augmentation-options.png"> </span>
      
-Step of roboflow for One Piece Character Detection Project
-1. Upload photo to roboflow
-2. Label One Piece Character in all photo.
-3. Image preprocessing & Image augmentation
-4. Train.
-5. Deploy.
+Step of Roboflow for One Piece Character Detection Project
+1.	Upload photo into Roboflow
+2.	Label One Piece Character in all of the photos in the datasets.
+3.	Image preprocessing & Image augmentation
+4.	Train model.
+5.	Deploy.
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/roboflow%20step.png"> </span>
 
-Image source and detail of roboflow tutorial --> https://blog.streamlit.io/how-to-use-roboflow-and-streamlit-to-visualize-object-detection-output/
+Image source and detail of Roboflow tutorial --> https://blog.streamlit.io/how-to-use-roboflow-and-streamlit-to-visualize-object-detection-output/
 
-# roboflow's outcome:
+# Roboflow's outcome:
 - Project Link: https://app.roboflow.com/dl-yjboe/dads7202_hw2/13
 - mAP for Train / Validation / Test of all charactor = 71% / 68% / 70%
 - Observation: Usopp is lowest score --> Usopp have 2 version (wear mask/no mask) but our team label only 1 label (ยังไม่เสร็จ)
@@ -177,13 +173,19 @@ The object detection method YOLO, which stands for "You Only Look Once," divide 
 
 
 # 5. Summary
-จากการทดลองทั้ง 6 โมเดลพบว่าโมเดลที่ให้ค่า mAP@0.5 ดีที่สุดคือ โมเดล 2 ที่ Unfreeze Model และใช้ Weight ที่ผ่าน Pre-train ซึ่งให้ผลลัพธ์ที่ดีกว่า โมเดล 1 ที่ Unfreeze Model และไม่ใช้ Weight ที่ผ่าน Pre-train ซึ่งทั้ง 2 โมเดลนี้ให้ค่า mAP@0.5 ที่แตกต่างกันมาก ในขณะที่ใช้เวลาในการ Train ไม่แตกต่างกันอย่างมีนัยสำคัญ แต่เมื่อพิจารณาโมเดลที่ 5 กับโมเดลที่ 2 พบว่าค่า mAP@0.5 ของโมเดล 5 ให้ผลลัพธ์ไม่ต่างอย่างมีนัยสำคัญกับโมเดลที่ 1 แต่กลับใช้เวลาในการ Train ที่น้อยกว่าโมเดลที่ 1 มาก ส่วนโมเดลที่ 3 และ 4 ที่มีการ Freeze ทั้งโมเดลยกเว้น Inference Layer จะให้ผลลัพธ์ที่ไม่เหมาะสม เนื่องการเป็นส่วนของ Head กับ Neck ที่เกี่ยวข้องกับการทำนายผลลัพธ์ ซึ่งไม่ใช่ส่วนของ Feature Extraction จึงทำให้โมเดลไม่มีการเปลี่ยนแปลง Back Propagation ในส่วนของการทำนายผลให้สอดคล้องกับ Dataset ชุดใหม่ 
+From the six training models, we can summarize as follows;
+
+In terms of mAP@0.5 score, the model with the best mAP@0.5 score is model number 2, which is an unfreeze model that uses the weight from the pre-train model. When compared to model number 1, which is an unfreeze model that does not use the weight from the pre-train model, the mAP@0.5 result is significantly different even though the training time used is not significantly different.
+
+In terms of training time, although model number 5 and model number 1 where the mAP@0.5 score are not significantly different, however the training time of model number 5 is significantly less than model number 1.
+
+Furthermore, models 3 and 4, which are trained by freezing the entire model except the inference layers, produce irrelevant results because the Head and Neck sections, which are not part of Feature Extraction, do not change the back propagation in relation to the prediction in accordance with the new dataset.
 
 # 6. Future Work
-- ปรับแก้การ labeling ให้เหมาะสม เช่น บางภาพอาจเห็นแค่ใบหูด้านข้างของตัวละคร แล้วทำให้การ detect ทำได้ยาก 
-- ทำการ unfreeze ในส่วนของ Head และ Neck ตามลำดับเพื่อเปรียบเทียบผลลัพธ์กับการ unfreez พร้อมกัน
-- เปรียบเทียบผลลัพธ์ของโมเดลที่ 1 2 5 กับ yoloV5 ที่เป็น verion s m x ว่าผลลัพธ์จะยังเป็นเหมือนเดิมเหรือไม่
-- เพิ่ม Dataset เพื่อทดสอบดูว่าความแม่นยำเพิ่มขึ้นหรือไม่ 
+- Modify the labeling standard; for example, some images may only show the character's side or ears, making it difficult to detect.
+- Unfreeze the parts of the head and neck separately to compare the results of the unfreezes.
+- Check whether the results of models 1,2,5 and yoloV5 versions s,m, and x are the same.
+- Increase the number of images in the dataset to see if it improves prediction accuracy.
 
 # Reference
 
