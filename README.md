@@ -162,8 +162,8 @@ However, roboflow have tuning limitation. Next step, team will use jupyter in co
     <img width="50%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Running%20time.png"> </span>
 
 - Alternative model (Balance between score and running time) = Model 6 
-   - Score drop = ~15%
-   - Save time = ~40%
+   - Score drop  ~15%
+   - Save time  ~40%
 - Observation: 
    - Score: unfreeze layer model  > freeze layer model
    - Score: allow to update weight model  > No update weight model
@@ -174,7 +174,7 @@ However, roboflow have tuning limitation. Next step, team will use jupyter in co
 From the six training models, we can summarize as follows;<br>
 - In terms of mAP@0.5 score, the model with the best mAP@0.5 score is model number 2, which is an unfreeze model that uses the weight from the pre-train model. When compared to model number 1, which is an unfreeze model that does not use the weight from the pre-train model, the mAP@0.5 result is significantly different even though the training time used is not significantly different.<br>
 - In terms of training time, although model number 5 and model number 1 where the mAP@0.5 score are not significantly different, however the training time of model number 5 is significantly less than model number 1.<br>
-Furthermore, models 3 and 4, which are trained by freezing the entire model except the inference layers, produce irrelevant results because the Head and Neck sections, which are not part of Feature Extraction, do not change the back propagation in relation to the prediction in accordance with the new dataset.
+Furthermore, models 3 and 4, which are trained by freezing the entire model except the inference layers, produce irrelevant results because the Head sections, which are not part of Feature Extraction, do not change the back propagation in relation to the prediction in accordance with the new dataset.
 
 # Future Work
 -	Modify the labeling standard; for example, some images may only show the character's side or ears, making it difficult to detect.
