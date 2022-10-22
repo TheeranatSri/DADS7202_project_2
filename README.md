@@ -5,7 +5,7 @@ by Capybarista Team
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Header.jpg"> </span>
 
 # Definition
-- **Model 1** : Roboflow (Default) - (0.7)<br>
+- **Model 1** : Roboflow (Default) <br>
   Yolov5l on app.roboflow.com
 - **Model 2** : Yolov5l - Weight False Freeze False<br>
   Yolov5l unfreeze all layers and don't use pretrain weights.
@@ -201,13 +201,11 @@ Both of these models give very different mA@0.5 values. While the time spent on 
 
 # Capybarista Team member:
 - Theeranat Sringamdee 641042014 
-- พัชรพฤกษ์ วัฒนางกูร
+- Patcharapruek Watanangura 6410412007
 - Nattapong Thanngam_6310422089 
-- สุกิจ วาณิชฤดี_6310422092 
-- อร มินเทียร์
+- Sukit Vanichrudee 6310422092 
+- On Minteer 6410414001 
 
-- 6410414001 
-- 6410412007 
 
 <p align="center" width="100%">
     <img width="50%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Capybarista3.jpg"> </span>
