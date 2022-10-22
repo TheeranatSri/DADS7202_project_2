@@ -203,7 +203,7 @@ Furthermore, models 3 and 4, which are trained by freezing the entire model exce
 - Theeranat Sringamdee 641042014 
 - Patcharapruek Watanangura 6410412007 
 - Nattapong Thanngam 6310422089 
-- สุกิจ วาณิชฤดี_6310422092 
+- Sukit Vanichrudee 6310422092 
 - On Minteer_6410414001 
 
 <p align="center" width="100%">
