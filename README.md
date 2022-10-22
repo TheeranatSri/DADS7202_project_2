@@ -204,7 +204,7 @@ Furthermore, models 3 and 4, which are trained by freezing the entire model exce
 - Patcharapruek Watanangura 6410412007 
 - Nattapong Thanngam 6310422089 
 - Sukit Vanichrudee 6310422092 
-- On Minteer_6410414001 
+- On Minteer 6410414001 
 
 <p align="center" width="100%">
     <img width="50%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Capybarista3.jpg"> </span>
