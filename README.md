@@ -121,7 +121,7 @@ However, roboflow have tuning limitation. Next step, team will use jupyter in co
 - Six models were Comparison base on batch-size 16, 100 epochs and default hypermarameter
 
 # mAP@0.5 score from Jupyter-colab:
--    **Model 1 Default** mAP  0.71
+-    **Model 1 Default** mAP@0.5  0.71
 <p align="center" width="100%">
     <img width="80%" src="pic/model1_result.png"> </span><br>
 
