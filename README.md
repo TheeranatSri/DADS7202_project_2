@@ -203,7 +203,7 @@ Furthermore, models 3 and 4, which are trained by freezing the entire model exce
 # Capybarista Team member:
 - Theeranat Sringamdee 641042014 
 - Patcharapruek Watanangura 6410412007
-- Nattapong Thanngam_6310422089 
+- Nattapong Thanngam 6310422089 
 - Sukit Vanichrudee 6310422092 
 - On Minteer 6410414001 
 
