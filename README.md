@@ -193,7 +193,9 @@ From the six training models, we can summarize as follows;<br>
 - mAP definition
   - https://towardsdatascience.com/map-mean-average-precision-might-confuse-you-5956f1bfa9e2
   - https://openaccess.thecvf.com/content_CVPR_2019/papers/Rezatofighi_Generalized_Intersection_Over_Union_A_Metric_and_a_Loss_for_CVPR_2019_paper.pdf
-
+## Result from training model
+The results of each model  at  {model}/weights/best.pt<br>
+https://drive.google.com/drive/folders/1-ADFe-EpZEnTswuqjk5u_CidGuUA_vrn?usp=sharing
 ---------------------------------------------------
 
 # Capybarista Team member:
