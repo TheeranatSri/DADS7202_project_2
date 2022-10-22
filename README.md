@@ -7,15 +7,15 @@ by Capybarista Team
 # Definition
 - **Model 1** : Roboflow (Default) - (0.7)<br>
   Yolov5l on app.roboflow.com
-- **Model 2** : Yolov5l - Weight False, Freeze False<br>
+- **Model 2** : Yolov5l - Weight False Freeze False<br>
   Yolov5l unfreeze all layers and don't use pretrain weights.
-- **Model 3** : Yolov5l - Weight True, Freeze False<br>
+- **Model 3** : Yolov5l - Weight True Freeze False<br>
   Yolov5l unfreeze all layers and  use pretrain weights.
-- **Model 4** : Yolov5l - Weight False, Freeze True<br>
+- **Model 4** : Yolov5l - Weight False Freeze True<br>
   Yolov5l freeze all layers and don't use pretrain weights.
-- **Model 5** : Yolov5l - Weight True, Freeze True<br>
+- **Model 5** : Yolov5l - Weight True Freeze True<br>
   Yolov5l freeze all layers and  use pretrain weights.
-- **Model 6** : Yolov5l - Weight True, Freeze 10<br>
+- **Model 6** : Yolov5l - Weight True Freeze 10<br>
   Yolov5l freeze 10 layers (backbone) and use pretrain weights.
 
 
@@ -30,12 +30,13 @@ by Capybarista Team
    - Model 5 (0.066 / 2.43 hr)
    - Model 6 (0.673 / 3.22 hr)
 
-- The Best Model (Highest score) is Model 3 (Unfreeze all layer and use pretrain weights).
-- Alternative model (Balance between score and running time) is Model 6.
+- The Best Model (Highest score) = Model 3 (Unfreeze all layer and use pretrain weights)
+- Alternative model (Balance between score and running time) = Model 6
   
 # Introduction:
-- Object detection is a computer vision technique that allows us to recognize and locate objects in images or videos. Object detection can be used to count objects in a scene and determine and track their precise locations, all while accurately labeling them, using this type of identification and localization. 
-Below is a comparison of image classification, object detection, and instance segmentation.
+- Object detection: Object detection is a computer vision technique that allows us to identify and locate objects in an image or video. 
+With this kind of identification and localization, object detection can be used to count objects in a scene and determine and track their precise locations, 
+all while accurately labeling them. The comparison between image classification, object detection, and instance segmentation is shown below.
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Picture1.png"> </span>
@@ -44,56 +45,58 @@ Below is a comparison of image classification, object detection, and instance se
 
 ## YOLOv5
   
-- YOLOv5: YOLO, which stands for "You Only Look Once," is an object detection algorithm that divides images into grids. Each grid cell is in charge of detecting objects within itself. Because of its speed and accuracy, YOLO is one of the most well-known object detection algorithms.
+- YOLOv5: YOLO an acronym for 'You only look once, is an object detection algorithm that divides images into a grid system. Each cell in the grid is responsible for detecting objects within itself. YOLO is one of the most famous object detection algorithms due to its speed and accuracy.
 [[Li, Karpathy,Johnson]](http://cs231n.stanford.edu/2016/)
-- The YOLOv5 algorithm design follows the consistent idea of the YOLO series: the image to be detected was processed through an input layer (input) and sent to the backbone for feature extraction, which has convolution layers. Then, feature maps were generated to detect the objects in the image. Following that, the prediction head (head) will be notified, and the confidence of bounding-box were executed for each pixel in the feature map to obtain a multi-dimensional array (BBoxes) containing object class, class confidence, box coordinates, width, and height information. To filter the useless information in the array, and performing a non-maximum suppression (NMS) process (which selects the best bounding box for an object and rejects or "suppresses" all other bounding boxes). The inference process refers to the process of converting the input image into BBoxes [[Haiying Liu Fengqian Sun,Jason Gu,Lixia Deng]](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9371183/)
+- YOLOv5 continues the consistent idea of the YOLO series in algorithm design: the image to be detected was processed through a input layer (input) and sent to the backbone for feature extraction that has convolution layers. Then generated feature maps to detect the objects in the picture. After that will be sent to prediction head (head), And the confidence of bounding-box were executed for each pixel in the feature map to obtain a multi-dimensional array (BBoxes) including object class, class confidence, box coordinates, width, and height information. To filter the useless information in the array, and performing a non-maximum suppression (NMS) process (that has the purpose to select the best bounding box for an object and reject or “suppress” all other bounding boxes), the final detection information can be output. The process of converting the input picture into BBoxes is called the inference process [[Haiying Liu Fengqian Sun,Jason Gu,Lixia Deng]](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9371183/)
 
 <p align="center" width="100%"><img width="80%" src="pic/architecture_yolov5.jpg"> </span><br>
 Inference process of YOLOv5
 
 
 ## Roboflow
-- Roboflow is a computer vision platform that enables users to build computer vision models faster and more accurately by providing improved data collection, preprocessing, and model training techniques. Roboflow allows users to upload custom datasets, draw annotations, change image orientations, resize images, change image contrast, and perform data augmentation. 
+- roboflow: Roboflow is a computer vision platform that allows users to build computer vision models faster and more accurately through the provision of better data collection, preprocessing, 
+and model training techniques. Roboflow allows users to upload custom datasets, draw annotations, modify image orientations, resize images, modify image contrast and perform data augmentation. 
 It can also be used to train models.<br>
 *Link for more detail*: https://docs.ultralytics.com/ , https://github.com/ultralytics/yolov5 , https://pypi.org/project/yolov5/
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/roboflow.jpg"> </span>
 
-## Image Augmentation
-- Image augmentation is an efficacious technique when we don’t have an ample amount of data for training a deep learning model. Our team uses Roboflow to enhance images (due to time limitation, we set criteria of image augmentation as default of Roboflow). The image augmentation options in Roboflow are depicted in the figure below.
+## Image augmentation
+- Image augmentation is an efficacious technique when we don’t have an ample amount of data for training a deep learning model. 
+Our team do Image augmentation with roboflow (due to time limitation, we set criteria of image augmentation as default of roboflow). Following figure is image augmentation options in roboflow.
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/augmentation-options.png"> </span>
 
 ## mAP
-- The mean Average Precision, or mAP score, is calculated by averaging the AP across all classes and/or the overall IoU thresholds, depending on the detection challenges.[[Shivy Yohanandan]](https://towardsdatascience.com/map-mean-average-precision-might-confuse-you-5956f1bfa9e2)
+- The mean Average Precision or mAP score is calculated by taking the mean AP over all classes and/or overall IoU thresholds, depending on different detection challenges that exist.[[Shivy Yohanandan]](https://towardsdatascience.com/map-mean-average-precision-might-confuse-you-5956f1bfa9e2)
 
 ## IoU
 - Intersection over Union is the defacto evaluation metric used in object
-detection. It's used to determine which predictions are true and which are false. An accuracy threshold must be chosen when using IoU as an evaluation metric. [[Rezatofighi,Tsoi,Gwa,etc.]](https://openaccess.thecvf.com/content_CVPR_2019/papers/Rezatofighi_Generalized_Intersection_Over_Union_A_Metric_and_a_Loss_for_CVPR_2019_paper.pdf)
+detection. It is used to determine true positives and false positives in a set of predictions. When using IoU as an evaluation metric an accuracy threshold must be chosen [[Rezatofighi,Tsoi,Gwa,etc.]](https://openaccess.thecvf.com/content_CVPR_2019/papers/Rezatofighi_Generalized_Intersection_Over_Union_A_Metric_and_a_Loss_for_CVPR_2019_paper.pdf)
 <p align="center" width="20%">
     <img width="35%" src="http://ronny.rest/media/tutorials/localization/ZZZ_IMAGES_DIR/iou_formula.png"> </span>
 
 
-Step of Roboflow for One Piece Character Detection Project
-1.	Upload photo into Roboflow
-2.	Label One Piece Character in all of the photos in the datasets.
-3.	Image preprocessing & Image augmentation
-4.	Train model.
-5.	Deploy.
+Step of roboflow for One Piece Character Detection Project
+1. Upload photo to roboflow
+2. Label One Piece Character in all photos.
+3. Image preprocessing & Image augmentation
+4. Train.
+5. Deploy.
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/roboflow%20step.png"> </span>
 
 Image source and detail of roboflow tutorial --> https://blog.streamlit.io/how-to-use-roboflow-and-streamlit-to-visualize-object-detection-output/
 
-# Our project in Roboflow:
+# Our project in roboflow:
 - Project Link: https://app.roboflow.com/dl-yjboe/dads7202_hw2
-- Total number of images = 1182 (The number of photos for each character is listed below.) Some images have multiple characters)
-- Total number of photos after image augmentation = 11232
-- Train-Test Split are 70% : 20% : 10% 
-  - After Image Augmentation, Train : Validation : Test are 87% : 8% : 5%
+- Total image = 1182 pictures (Number of photos for each character shown below. Some pictures have multi-character)
+- Number of photos after image augmentation = 11232
+- Train-Test Split are 70 : 20 : 10 
+  - After Image augmentation Train : Validation : Test are 87 : 8 : 5
 - Other settings are shown below
 
 <p align="center" width="100%">
@@ -102,22 +105,22 @@ Image source and detail of roboflow tutorial --> https://blog.streamlit.io/how-t
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/roboflow%20setting.jpg"> </span>
 
 
-# Roboflow's outcome:
-- mAP@0.5 for Train / Validation / Test of all character  = 71% / 68% / 70%
+# roboflow's outcome:
+- mAP@0.5 for Train / Validation /Test of all character  = 71% / 68% / 70%
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/roboflow%20score.png"> </span>
 
-However, Roboflow have tuning limitation. Next step, team will use jupyter in colab to adjust hyperparameter.
+However, roboflow have tuning limitation. Next step, team will use jupyter in colab to adjust hyperparameter.
 
 ---------------------------------------------------
-# Our project in Jupyter-Colab:
+# Our project in jupyter-colab:
 - Project Link: 
    - https://colab.research.google.com/drive/1hfHihyPVFt18axpft3brB-uG-jAQ9OoM?usp=sharing#scrollTo=ii8qC1HDUzZ6
 
-- Six models were compared based on batch size 16, 100 epochs, and the default hyperparameter.
+- Six models were Comparison base on batch-size 16, 100 epochs and default hypermarameter
 
-# mAP@0.5 score from Jupyter-Colab:
+# mAP@0.5 score from Jupyter-colab:
 -    **Model 1** mAP@0.5  0.71
 <p align="center" width="100%">
     <img width="80%" src="pic/model1_result.png"> </span><br>
@@ -146,20 +149,19 @@ However, Roboflow have tuning limitation. Next step, team will use jupyter in co
 <p align="center" width="100%">
     <img width="80%" src="pic/yolov5l_W_True_F10_True_PR_curve.png"> </span>
 
-
+# The sample results obtained from the 3rd model.
 <p align="center" width="100%">
-    <img width="80%" src="pic/"> </span>
+    <img width="80%" src="pic/W_t_F_f.jpg"> </span>
 
 
-
-# Jupyter-Colab's outcome:
-- The best score model = Yolov5l - Weight True, Freeze False at 0.787
+# Jupyter-colab's outcome:
+- The best score model = Model 3, 0.787
 - However, running time is high. The running time of each model is shown below
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Running%20time.png"> </span>
 
-- Alternative model (Balance between score and running time) = Yolov5l - Weight True Freeze 10 
+- Alternative model (Balance between score and running time) = Model 6 
    - Score drop = ~15%
    - Save time = ~40%
 - Observation: 
@@ -168,25 +170,19 @@ However, Roboflow have tuning limitation. Next step, team will use jupyter in co
    - Running time: unfreeze layer model  > freeze layer model
    - Running time: allow to update weight model  ~ No update weight model
 
-From the six training models, we can summarize as follows;
-
-In terms of mAP@0.5 score, the model with the best mAP@0.5 score is model number 2, which is an unfreeze model that uses the weight from the pre-train model. When compared to model number 1, which is an unfreeze model that does not use the weight from the pre-train model, the mAP@0.5 result is significantly different even though the training time used is not significantly different.
-
-In terms of training time, although model number 5 and model number 1 where the mAP@0.5 score are not significantly different, however the training time of model number 5 is significantly less than model number 1.
-
-Furthermore, models 3 and 4, which are trained by freezing the entire model except the inference layers, produce irrelevant results because the Head and Neck sections, which are not part of Feature Extraction, do not change the back propagation in relation to the prediction in accordance with the new dataset.
+# Summary
+- Of the 7 models, That was found  the best mAP@0.5 model was Model 3 with the unfreeze model and pretrained weight, which has better results than the Model 2 that unfreeze nodel and don't use pretrained weight.
+Both of these models give very different mA@0.5 values. While the time spent on the train was not significantly different. However, when looking at Model 6 and Model 3, <br>the mAP@0.5 of Model 6 was not significantly different from that of Model 2, but it took much less time to train than Model 2. The 4th and 5th models that freeze both models except the Inference Layer will give inappropriate results. This is because the Head section is related to predicting outcomes. which is not part of fature extraction.
 
 # Next step:
+- Add number of photos
 - Use more features of image augmentation (Cutout, Grayscale, ...)
+- Create standard of Labelling 
 - Comparison to other versions of YoloV5 (YoloV5m,  YoloV5x, ...)
-- Modify the labeling standard; for example, some images may only show the character's side or ears, making it difficult to detect.
-- Unfreeze the parts of the head and neck separately to compare the results of the unfreezes.
-- Check whether the results of models 1,2,5 and yoloV5 versions s,m, and x are the same.
-- Increase the number of images in the dataset to see if it improves prediction accuracy.
-
-
-# References:
-- Object Detection:
+- Adjust hyperarameter
+- 
+# Reference:
+- Object detection:
   - https://medium.com/zylapp/review-of-deep-learning-algorithms-for-object-detection-c1f3d437b852
   - https://machinelearningmastery.com/object-recognition-with-deep-learning/
   - https://medium.com/ml-research-lab/what-is-object-detection-51f9d872ece7
@@ -194,21 +190,24 @@ Furthermore, models 3 and 4, which are trained by freezing the entire model exce
   - https://docs.ultralytics.com/
   - https://github.com/ultralytics/yolov5
   - https://pypi.org/project/yolov5/
-- Roboflow:
+- roboflow:
   - https://roboflow.com/
   - https://blog.streamlit.io/how-to-use-roboflow-and-streamlit-to-visualize-object-detection-output/
-- mAP Definition
+- mAP defination
   - https://towardsdatascience.com/map-mean-average-precision-might-confuse-you-5956f1bfa9e2
   - https://openaccess.thecvf.com/content_CVPR_2019/papers/Rezatofighi_Generalized_Intersection_Over_Union_A_Metric_and_a_Loss_for_CVPR_2019_paper.pdf
 
 ---------------------------------------------------
 
-# Capybarista Team Members:
+# Capybarista Team member:
 - Theeranat Sringamdee 641042014 
-- Patcharapruek Watanangura 6410412007 
-- Nattapong Thanngam 6310422089 
-- Sukit Vanichrudee 6310422092 
-- On Minteer 6410414001 
+- พัชรพฤกษ์ วัฒนางกูร
+- Nattapong Thanngam_6310422089 
+- สุกิจ วาณิชฤดี_6310422092 
+- อร มินเทียร์
+
+- 6410414001 
+- 6410412007 
 
 <p align="center" width="100%">
     <img width="50%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Capybarista3.jpg"> </span>
