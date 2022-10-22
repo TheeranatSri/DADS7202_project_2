@@ -158,8 +158,8 @@ However, roboflow have tuning limitation. Next step, team will use jupyter in co
 - The best score model = Model 3, 0.787
 - However, running time is high. The running time of each model is shown below
 
-<p align="center" width="100%">
-    <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Running%20time.png"> </span>
+<p align="center" width="80%">
+    <img width="50%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Running%20time.png"> </span>
 
 - Alternative model (Balance between score and running time) = Model 6 
    - Score drop = ~15%
