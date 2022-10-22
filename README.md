@@ -197,11 +197,11 @@ From the six training models, we can summarize as follows;<br>
 ---------------------------------------------------
 
 # Capybarista Team member:
-- Theeranat Sringamdee 641042014 (20%) run model, research
-- Patcharapruek Watanangura 6410412007 (20%) run model , research
-- Nattapong Thanngam 6310422089 (20%) writting report,Proof read, research
-- Sukit Vanichrudee 6310422092 (20%) writting report, Proof read, research
-- On Minteer 6410414001 (20%) writting report, Proof read, research  
+- Theeranat Sringamdee 641042014 (20%) run model, research, data labeling
+- Patcharapruek Watanangura 6410412007 (20%) run model , research, data labeling
+- Nattapong Thanngam 6310422089 (20%) writting report,Proof read, research, data labeling
+- Sukit Vanichrudee 6310422092 (20%) writting report, Proof read, research, data labeling
+- On Minteer 6410414001 (20%) writting report, Proof read, research, data labeling
 This project is a part of subject DADS7202. Data Analytics and Data Science. NIDA
 
 
