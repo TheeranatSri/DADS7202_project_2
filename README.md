@@ -85,7 +85,7 @@ Step of Roboflow for One Piece Character Detection Project
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/roboflow%20step.png"> </span>
 
-Image source and detail of roboflow tutorial --> https://blog.streamlit.io/how-to-use-roboflow-and-streamlit-to-visualize-object-detection-output/
+Image source and detail of Roboflow tutorial --> https://blog.streamlit.io/how-to-use-roboflow-and-streamlit-to-visualize-object-detection-output/
 
 # Our project in Roboflow:
 - Project Link: https://app.roboflow.com/dl-yjboe/dads7202_hw2
@@ -160,7 +160,7 @@ However, Roboflow have some tuning limitation. Next step, team will use Jupyter 
 - Alternative model (Balance between score and running time) = Model 6 
    - Score drop  ~15%
    - Save time  ~40%
-- Observation: 
+- Observations: 
    - Score: unfreeze layer model  > freeze layer model
    - Score: allow to update weight model  > No update weight model
    - Running time: unfreeze layer model  > freeze layer model
@@ -197,11 +197,11 @@ From the six training models, we can summarize as follows;<br>
 ---------------------------------------------------
 
 # Capybarista Team member:
-- Theeranat Sringamdee 641042014 (20%) run model, research, data labeling
-- Patcharapruek Watanangura 6410412007 (20%) run model , research, data labeling
-- Nattapong Thanngam 6310422089 (20%) writting report,Proof read, research, data labeling
-- Sukit Vanichrudee 6310422092 (20%) writting report, Proof read, research, data labeling
-- On Minteer 6410414001 (20%) writting report, Proof read, research, data labeling<br>
+- Theeranat Sringamdee 641042014 (20%) run model, research, data labelling
+- Patcharapruek Watanangura 6410412007 (20%) run model , research, data labelling
+- Nattapong Thanngam 6310422089 (20%) writing report, proof read, research, data labelling
+- Sukit Vanichrudee 6310422092 (20%) writing report, Proof read, research, data labelling
+- On Minteer 6410414001 (20%) writing report, proof read, research, data labelling<br>
 This project is a part of subject DADS7202. Data Analytics and Data Science. NIDA
 
 
