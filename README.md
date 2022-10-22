@@ -168,7 +168,7 @@ However, roboflow have tuning limitation. Next step, team will use jupyter in co
    - Running time: allow to update weight model  ~ No update weight model
 
 # Summary
-- Of the 7 models, That was found  the best mAP@0.5 model was Model 3 with the unfreeze model and pretrained weight, which has better results than the Model 2 that unfreeze nodel and don't use pretrained weight.
+- Of the 7 models, That was found  the best mAP@0.5 model was Model 3 with the unfreeze model and use pretrained weight, which has better results than the Model 2 that unfreeze nodel and don't use pretrained weight.
 Both of these models give very different mA@0.5 values. While the time spent on the train was not significantly different. However, when looking at Model 6 and Model 3, <br>the mAP@0.5 of Model 6 was not significantly different from that of Model 2, but it took much less time to train than Model 2. The 4th and 5th models that freeze both models except the Inference Layer will give inappropriate results. This is because the Head section is related to predicting outcomes. which is not part of fature extraction.
 
 # Next step:
@@ -177,7 +177,7 @@ Both of these models give very different mA@0.5 values. While the time spent on 
 - Create standard of Labelling 
 - Comparison to other versions of YoloV5 (YoloV5m,  YoloV5x, ...)
 - Adjust hyperarameter
-- 
+
 # Reference:
 - Object detection:
   - https://medium.com/zylapp/review-of-deep-learning-algorithms-for-object-detection-c1f3d437b852
