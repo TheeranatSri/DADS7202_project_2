@@ -4,48 +4,84 @@ by Capybarista Team
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Header.jpg"> </span>
 
+# Definition
+- **Model 1** : Roboflow (Default) - (0.7)<br>
+  Yolov5l on app.roboflow.com
+- **Model 2** : Yolov5l - Weight False Freeze False<br>
+  Yolov5l unfreeze all layers and don't use pretrain weights.
+- **Model 3** : Yolov5l - Weight True Freeze False<br>
+  Yolov5l unfreeze all layers and  use pretrain weights.
+- **Model 4** : Yolov5l - Weight False Freeze True<br>
+  Yolov5l freeze all layers and don't use pretrain weights.
+- **Model 5** : Yolov5l - Weight True Freeze True<br>
+  Yolov5l freeze all layers and  use pretrain weights.
+- **Model 6** : Yolov5l - Weight True Freeze 10<br>
+  Yolov5l freeze 10 layers (backbone) and use pretrain weights.
+
 
 
 # Brief Result:
 
 - Model comparison with mAP@0.5 score and Running time
-   - roboflow (Default) - (0.7)
-   - Yolov5l - Weight False Freeze False (0.709 / 5.36 hr)
-   - Yolov5l - Weight True Freeze False (0.787 / 5.35 hr)
-   - Yolov5l - Weight False Freeze True (0.002 / 2.42 hr)
-   - Yolov5l - Weight True Freeze True (0.066 / 2.43 hr)
-   - Yolov5l - Weight True Freeze 10 (0.673 / 3.22 hr)
-   - Yolov5s - Weight True Freeze True (ยังไม่เสร็จ)
+   - Model 1 (Default) - (0.7 / not available)
+   - Model 2 (0.709 / 5.36 hr)
+   - Model 3 (0.787 / 5.35 hr)
+   - Model 4 (0.002 / 2.42 hr)
+   - Model 5 (0.066 / 2.43 hr)
+   - Model 6 (0.673 / 3.22 hr)
 
-- The Best Model (Highest score) = Yolov5l - Weight True Freeze False (Unfreeze Model + Adjust weight from pre-train result)
-- Alternative model (Balance between score and running time) = Yolov5l - Weight True Freeze 10
-
+- The Best Model (Highest score) = Model 3 (Unfreeze all layer and use pretrain weights)
+- Alternative model (Balance between score and running time) = Model 6
+  
 # Introduction:
 - Object detection: Object detection is a computer vision technique that allows us to identify and locate objects in an image or video. 
-With this kind of identification and localization, object detection can be used to count objects in a scene and determine and track their precise locations, all while accurately labeling them.
-The comparison between image classification, object detection and instance segmentation shown in below.
+With this kind of identification and localization, object detection can be used to count objects in a scene and determine and track their precise locations, 
+all while accurately labeling them. The comparison between image classification, object detection, and instance segmentation is shown below.
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Picture1.png"> </span>
 
-from: Standford University 2016 winter lectures CS231n Fei-Fei Li & Andrej Karpathy & Justin Johnson
+<br>
 
+## YOLOv5
+  
+- YOLOv5: YOLO an acronym for 'You only look once, is an object detection algorithm that divides images into a grid system. Each cell in the grid is responsible for detecting objects within itself. YOLO is one of the most famous object detection algorithms due to its speed and accuracy.
+[[Li, Karpathy,Johnson]](http://cs231n.stanford.edu/2016/)
+- YOLOv5 continues the consistent idea of the YOLO series in algorithm design: the image to be detected was processed through a input layer (input) and sent to the backbone for feature extraction that has convolution layers. Then generated feature maps to detect the objects in the picture. After that will be sent to prediction head (head), And the confidence of bounding-box were executed for each pixel in the feature map to obtain a multi-dimensional array (BBoxes) including object class, class confidence, box coordinates, width, and height information. To filter the useless information in the array, and performing a non-maximum suppression (NMS) process (that has the purpose to select the best bounding box for an object and reject or “suppress” all other bounding boxes), the final detection information can be output. The process of converting the input picture into BBoxes is called the inference process [[Haiying Liu Fengqian Sun,Jason Gu,Lixia Deng]](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9371183/)
+
+<p align="center" width="100%"><img width="80%" src="pic/architecture_yolov5.jpg"> </span><br>
+Inference process of YOLOv5
+
+
+## Roboflow
 - roboflow: Roboflow is a computer vision platform that allows users to build computer vision models faster and more accurately through the provision of better data collection, preprocessing, 
 and model training techniques. Roboflow allows users to upload custom datasets, draw annotations, modify image orientations, resize images, modify image contrast and perform data augmentation. 
-It can also be used to train models.
+It can also be used to train models.<br>
+*Link for more detail*: https://docs.ultralytics.com/ , https://github.com/ultralytics/yolov5 , https://pypi.org/project/yolov5/
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/roboflow.jpg"> </span>
 
-Image augmentation is an efficacious technique when we don’t have an ample amount of data for training a deep learning model. 
+## Image augmentation
+- Image augmentation is an efficacious technique when we don’t have an ample amount of data for training a deep learning model. 
 Our team do Image augmentation with roboflow (due to time limitation, we set criteria of image augmentation as default of roboflow). Following figure is image augmentation options in roboflow.
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/augmentation-options.png"> </span>
-     
+
+## mAP
+- The mean Average Precision or mAP score is calculated by taking the mean AP over all classes and/or overall IoU thresholds, depending on different detection challenges that exist.[[Shivy Yohanandan]](https://towardsdatascience.com/map-mean-average-precision-might-confuse-you-5956f1bfa9e2)
+
+## IoU
+- Intersection over Union is the defacto evaluation metric used in object
+detection. It is used to determine true positives and false positives in a set of predictions. When using IoU as an evaluation metric an accuracy threshold must be chosen [[Rezatofighi,Tsoi,Gwa,etc.]](https://openaccess.thecvf.com/content_CVPR_2019/papers/Rezatofighi_Generalized_Intersection_Over_Union_A_Metric_and_a_Loss_for_CVPR_2019_paper.pdf)
+<p align="center" width="20%">
+    <img width="35%" src="http://ronny.rest/media/tutorials/localization/ZZZ_IMAGES_DIR/iou_formula.png"> </span>
+
+
 Step of roboflow for One Piece Character Detection Project
 1. Upload photo to roboflow
-2. Label One Piece Character in all photo.
+2. Label One Piece Character in all photos.
 3. Image preprocessing & Image augmentation
 4. Train.
 5. Deploy.
@@ -55,138 +91,116 @@ Step of roboflow for One Piece Character Detection Project
 
 Image source and detail of roboflow tutorial --> https://blog.streamlit.io/how-to-use-roboflow-and-streamlit-to-visualize-object-detection-output/
 
+# Our project in roboflow:
+- Project Link: https://app.roboflow.com/dl-yjboe/dads7202_hw2
+- Total image = 1182 pictures (Number of photos for each character shown below. Some pictures have multi-character)
+- Number of photos after image augmentation = 11232
+- Train-Test Split are 70 : 20 : 10 
+  - After Image augmentation, Train : Validation : Test are 87 : 8 : 5
+- Other settings are shown below
+
+<p align="center" width="100%">
+    <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Number%20of%20character.jpg"> </span>
+<p align="center" width="100%">
+    <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/roboflow%20setting.jpg"> </span>
+
+
 # roboflow's outcome:
-- Project Link: https://app.roboflow.com/dl-yjboe/dads7202_hw2/13
-- mAP for Train / Validation / Test of all charactor = 71% / 68% / 70%
-- Observation: Usopp is lowest score --> Usopp have 2 version (wear mask/no mask) but our team label only 1 label (ยังไม่เสร็จ)
+- mAP@0.5 for Train / Validation /Test of all character  = 71% / 68% / 70%
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/roboflow%20score.png"> </span>
 
-
-
-
-
-
+However, roboflow have tuning limitation. Next step, team will use jupyter in colab to adjust hyperparameter.
 
 ---------------------------------------------------
-Respone type vs K-MEAN result 
+# Our project in jupyter-colab:
+- Project Link: 
+   - https://colab.research.google.com/drive/1hfHihyPVFt18axpft3brB-uG-jAQ9OoM?usp=sharing#scrollTo=ii8qC1HDUzZ6
 
-![alt](https://github.com/NattapongTH/NattapongTH-6310422089_BADS7105/blob/main/Homework%2008%20%E2%80%93%20Campaign%20Response%20Model/Photo/5.%20KMEAN%20vs%20Respone.JPG)
+- Six models were Comparison base on batch-size 16, 100 epochs and default hypermarameter
 
-Respone type vs key parameter
+# mAP@0.5 score from Jupyter-colab:
+-    **Model 1** mAP@0.5  0.71
+<p align="center" width="100%">
+    <img width="80%" src="pic/model1_result.png"> </span><br>
 
-![alt](https://github.com/NattapongTH/NattapongTH-6310422089_BADS7105/blob/main/Homework%2008%20%E2%80%93%20Campaign%20Response%20Model/Photo/6.JPG)
-![alt](https://github.com/NattapongTH/NattapongTH-6310422089_BADS7105/blob/main/Homework%2008%20%E2%80%93%20Campaign%20Response%20Model/Photo/7.JPG)
+   - **Model 2** mAP@0.5  0.709
+<p align="center" width="100%">
+    <img width="80%" src="pic/yolov5l_W_False_F_False_PR_curve.png"> </span>
 
-- Create new parameter to use in prediction model that is shown in following
+   - **Model 3** mAP@0.5  0.787
 
-![alt](https://github.com/NattapongTH/NattapongTH-6310422089_BADS7105/blob/main/Homework%2008%20%E2%80%93%20Campaign%20Response%20Model/Photo/3.%20Parameter.JPG)
+<p align="center" width="100%">
+    <img width="80%" src="pic/yolov5l_W_True_F_False_PR_curve.png"> </span>
 
-- Feature selection
-                             
-![alt](https://github.com/NattapongTH/NattapongTH-6310422089_BADS7105/blob/main/Homework%2008%20%E2%80%93%20Campaign%20Response%20Model/Photo/4.%20Feature%20selection.JPG)
+   - **Model 4** mAP@0.5 0.002
 
-- Highest score
+<p align="center" width="100%">
+    <img width="80%" src="pic/yolov5l_W_False_F_True_PR_curve.png"> </span>
 
-![alt](https://github.com/NattapongTH/NattapongTH-6310422089_BADS7105/blob/main/Homework%2008%20%E2%80%93%20Campaign%20Response%20Model/Photo/8.JPG)
-![alt](https://github.com/NattapongTH/NattapongTH-6310422089_BADS7105/blob/main/Homework%2008%20%E2%80%93%20Campaign%20Response%20Model/Photo/9.JPG)
+   - **Model 5** mAP@0.5  0.066
 
-- Conclusion
+<p align="center" width="100%">
+    <img width="80%" src="pic/yolov5l_W_True_F_True_PR_curve.png"> </span>
 
-![alt](https://github.com/NattapongTH/NattapongTH-6310422089_BADS7105/blob/main/Homework%2008%20%E2%80%93%20Campaign%20Response%20Model/Photo/11.jpg)
+   - **Model 6** mAP@0.5  0.673 
 
-# Capybarista Group <p> *Object Detection One Piece* </p>
-
-# 1. Overview 
-Data  จำนวน 1182 รูป ประกอบก้วย 9 คลาสดังนี้
-- Brook         92  รูป
-- Chopper       204 รูป
-- Franky        175 รูป
-- Luffy         364 รูป
-- Nami          205 รูป
-- Robin         217 รูป
-- Sanji         171 รูป
-- Usopp         271 รูป
-- Zoro          263 รูป
-  
-แบ่งเป็น Train:Test:Split   70 : 20 : 10
-
-กระบวนการ Create Dataset ด้วย Roboflow มีดังนี้
-1. PREPROCESSING
-    - Auto-Orient: Applied
-    - Resize: Stretch to 416xv416
-    - Tile: 2 rows x 2 columns
-2. AUGMENTATIONS
-    - Outputs per training example: 3
-    - Flip: Horizontal, Vertical
-    - Crop: 0% Minimum Zoom, 20% Maximum Zoom
-    - Rotation: Between -31° and +31°
-    - Brightness: Between -25% and +25%
-    - Blur: Up to 2px
-  
-รูปภาพที่ผ่านการ AUGMENTATIONS มีจำนวนทั้งสิ้น 11232 รูป แบ่งได้เป็น
-1. Train      จำนวน 9756 รูป ( 87% )
-2. Validation จำนวน 984  รูป (  8% )
-3. Test       จำนวน 528  รูป (  5% ) 
-
-Model ที่ใช้ในการทดสอบคือ Yolov5s และ Yolov5l
-แบ่งการทดสอบดังนี้
-1. Yolov5l unfreeze model และให้ Model ทำการปรับ Weight เอง
-2. Yolov5l unfreeze model และใช้ weight ที่ผ่าน pretrain (yolov5l.pt)
-3. Yolov5l Freeze   model ทั้งหมดยกเว้น Layer สุดท้ายสำหรับใช้ Inference และใช้ weight ที่ผ่าน pretrain (yolov5l.pt)
-4. Yolov5l Freeze  model ทั้งหมดยกเว้น Layer สุดท้ายสำหรับใช้ Inference และให้ Model ทำการปรับ Weight เอง
-5. Yolov5l Freeze  10 layer แรกและใช้ weight ที่ผ่าน pretrain  
-6. Yolov5s Freeze  model ทั้งหมดยกเว้น Layer สุดท้ายสำหรับใช้ Inference และใช้ weight ที่ผ่าน pretrain  (yolov5s.pt)
-
-
-# 2. What is Yolov5?
-The object detection method YOLO, which stands for "You Only Look Once," divide images into a grid structure. In the grid, each cell is in charge of finding objects within of it. Due to its accuracy and speed, YOLO is one of the most well-known object detection algorithms.
-
-# 3. Code Detail
-
-# 4. Result
-## PR Curve
-1. Yolov5l unfreeze และไม่ใช้ weight ที่ผ่าน pretrain <br>
-<img src="pic/yolov5l_W_False_F_False_PR_curve.png" alt="drawing" align ="center" width ="400">
-
-2. Yolov5l unfreeze model และใช้ weight ที่ผ่าน pretrain  <br>
-<img src="pic/yolov5l_W_True_F_False_PR_curve.png" alt="drawing" align ="center" width ="400">
-
-3. Yolov5l Freeze  model ทั้งหมดยกเว้น Layer สุดท้ายสำหรับใช้ Inference และใช้ weight ที่ผ่าน pretrain  
-<img src="pic/yolov5l_W_True_F_True_PR_curve.png" alt="drawing" align ="center" width ="400">
-
-4. Yolov5l Freeze  model ทั้งหมดยกเว้น Layer สุดท้ายสำหรับใช้ Inference และไม่ใช้ weight ที่ผ่าน pretrain <br>
-<img src="pic/yolov5l_W_False_F_True_PR_curve.png" alt="drawing" align ="center" width ="400">   
-
-5. Yolov5l Freeze  backbone 10 layer แรกและไม่ใช้ weight ที่ผ่าน pretrain  
-<img src="pic/yolov5l_W_True_F10_True_PR_curve.png" alt="drawing" align ="center" width ="400">   
-
-6. Yolov5s Freeze  model ทั้งหมดยกเว้น Layer สุดท้ายสำหรับใช้ Inferenceและใช้ weight ที่ผ่าน pretrain 
+<p align="center" width="100%">
+    <img width="80%" src="pic/yolov5l_W_True_F10_True_PR_curve.png"> </span>
 
 
 
-## mAP@0.5 ของโมเดลรูปแบบต่าง ๆ<br>
-<img src="pic/chart_PR_curve.png " alt="drawing" align ="center" width ="400">  <br> 
+# Jupyter-colab's outcome:
+- The best score model = Yolov5l - Weight True Freeze False, 0.787
+- However, running time is high. The running time of each model is shown below
 
-โมเดลที่ให้ผลลัพธ์ดีที่สุด 3 อันดับแรกคือ โมเดลที่ 2 3 และ 5 มีค่า mAP@0.5 อยู่ที่ 0.787 0.709 และ 0.ตามลำดับ ส่วนโมเดล 3 และ 4 ที่มีการ Freeze ทั้งโมเดลจะให้ผลลัพธ์ที่ตรงข้ามกันอย่างสิ้นเชิง ซึ่งค่า mAP@0.5 ที่ได้ในแต่ละโมเดลมีความสอดคล้องกับ Precision-Recall Curve โดยโมเดลที่มีค่า mAP@0.5 มากเส้นโค้ง Precision-Recall ก็จะมาค่าเข้าใกล้ 1 เมื่อพิจารณา mAP@0.5 ในแต่ละ Epoch ของโมเดลที่ 1 2 และ 5 จะพบว่าค่า mAP@0.5 จะมีอัตราการเปลี่ยนแปลงที่ไม่แตกต่างจากเดิมมากนักตั้งแต่ Epoch 80 เป็นต้นไป ในส่วนของเวลาที่ใช้ในการประมวลผลของแต่ละโมเดลจะเป็นดังต่อไปนี้<br>
+<p align="center" width="100%">
+    <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Running%20time.png"> </span>
 
-<img src="pic/cls_log_loss.png " alt="drawing" align ="center" width ="400">  <br> 
+- Alternative model (Balance between score and running time) = Yolov5l - Weight True Freeze 10 
+   - Score drop = ~15%
+   - Save time = ~40%
+- Observation: 
+   - Score: unfreeze layer model  > freeze layer model
+   - Score: allow to update weight model  > No update weight model
+   - Running time: unfreeze layer model  > freeze layer model
+   - Running time: allow to update weight model  ~ No update weight model
 
-โมเดลที่ใช้เวลานานที่สุดคือ โมเดลที่ 1 2 5 ซึ่งใช้เวลา 5.355 5.353 และ 3.222 ชั่วโมงตามลำดับ
 
+# Next step:
+- Add number of photos
+- Use more features of image augmentation (Cutout, Grayscale, ...)
+- Create standard of Labelling 
+- Comparison to other versions of YoloV5 (YoloV5m,  YoloV5x, ...)
 
-# 5. Summary
-จากการทดลองทั้ง 6 โมเดลพบว่าโมเดลที่ให้ค่า mAP@0.5 ดีที่สุดคือ โมเดล 2 ที่ Unfreeze Model และใช้ Weight ที่ผ่าน Pre-train ซึ่งให้ผลลัพธ์ที่ดีกว่า โมเดล 1 ที่ Unfreeze Model และไม่ใช้ Weight ที่ผ่าน Pre-train ซึ่งทั้ง 2 โมเดลนี้ให้ค่า mAP@0.5 ที่แตกต่างกันมาก ในขณะที่ใช้เวลาในการ Train ไม่แตกต่างกันอย่างมีนัยสำคัญ แต่เมื่อพิจารณาโมเดลที่ 5 กับโมเดลที่ 2 พบว่าค่า mAP@0.5 ของโมเดล 5 ให้ผลลัพธ์ไม่ต่างอย่างมีนัยสำคัญกับโมเดลที่ 1 แต่กลับใช้เวลาในการ Train ที่น้อยกว่าโมเดลที่ 1 มาก ส่วนโมเดลที่ 3 และ 4 ที่มีการ Freeze ทั้งโมเดลยกเว้น Inference Layer จะให้ผลลัพธ์ที่ไม่เหมาะสม เนื่องการเป็นส่วนของ Head กับ Neck ที่เกี่ยวข้องกับการทำนายผลลัพธ์ ซึ่งไม่ใช่ส่วนของ Feature Extraction จึงทำให้โมเดลไม่มีการเปลี่ยนแปลง Back Propagation ในส่วนของการทำนายผลให้สอดคล้องกับ Dataset ชุดใหม่ 
+# Reference:
+- Object detection:
+  - https://medium.com/zylapp/review-of-deep-learning-algorithms-for-object-detection-c1f3d437b852
+  - https://machinelearningmastery.com/object-recognition-with-deep-learning/
+  - https://medium.com/ml-research-lab/what-is-object-detection-51f9d872ece7
+- Yolov5: 
+  - https://docs.ultralytics.com/
+  - https://github.com/ultralytics/yolov5
+  - https://pypi.org/project/yolov5/
+- roboflow:
+  - https://roboflow.com/
+  - https://blog.streamlit.io/how-to-use-roboflow-and-streamlit-to-visualize-object-detection-output/
+- mAP defination
+  - https://towardsdatascience.com/map-mean-average-precision-might-confuse-you-5956f1bfa9e2
+  - https://openaccess.thecvf.com/content_CVPR_2019/papers/Rezatofighi_Generalized_Intersection_Over_Union_A_Metric_and_a_Loss_for_CVPR_2019_paper.pdf
 
-# 6. Future Work
-- ปรับแก้การ labeling ให้เหมาะสม เช่น บางภาพอาจเห็นแค่ใบหูด้านข้างของตัวละคร แล้วทำให้การ detect ทำได้ยาก 
-- ทำการ unfreeze ในส่วนของ Head และ Neck ตามลำดับเพื่อเปรียบเทียบผลลัพธ์กับการ unfreez พร้อมกัน
-- เปรียบเทียบผลลัพธ์ของโมเดลที่ 1 2 5 กับ yoloV5 ที่เป็น verion s m x ว่าผลลัพธ์จะยังเป็นเหมือนเดิมเหรือไม่
-- เพิ่ม Dataset เพื่อทดสอบดูว่าความแม่นยำเพิ่มขึ้นหรือไม่ 
+---------------------------------------------------
 
-# Reference
+# Capybarista Team member:
+- Theeranat Sringamdee 641042014 
+- พัชรพฤกษ์ วัฒนางกูร
+- Nattapong Thanngam_6310422089 
+- สุกิจ วาณิชฤดี_6310422092 
+- อร มินเทียร์
 
-[Yolov5]([https://](https://github.com/ultralytics/yolov5))
+- 6410414001 
+- 6410412007 
 
-[C3 model ]([https://](https://arxiv.org/abs/1812.04920))
+<p align="center" width="100%">
+    <img width="50%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Capybarista3.jpg"> </span>
