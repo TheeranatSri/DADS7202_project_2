@@ -95,7 +95,7 @@ Image source and detail of roboflow tutorial --> https://blog.streamlit.io/how-t
 - Project Link: https://app.roboflow.com/dl-yjboe/dads7202_hw2
 - Total image = 1182 pictures (Number of photos for each character shown below. Some pictures have multi-character)
 - Number of photos after image augmentation = 11232
-- Train-Test Split are 70 : 20 : 10 
+- Train Test Split are 70 : 20 : 10 
   - After Image augmentation Train : Validation : Test are 87 : 8 : 5
 - Other settings are shown below
 
