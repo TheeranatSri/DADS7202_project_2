@@ -111,7 +111,7 @@ Image source and detail of roboflow tutorial --> https://blog.streamlit.io/how-t
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/roboflow%20score.png"> </span>
 
-However, roboflow have tuning limitation. Next step, team will use jupyter in colab to adjust hyperparameter.
+However, roboflow have tuning limitation. Next step, team will use jupyter in colab to adjust some parameter.
 
 ---------------------------------------------------
 # Our project in jupyter-colab:
