@@ -96,7 +96,7 @@ Image source and detail of roboflow tutorial --> https://blog.streamlit.io/how-t
 - Total image = 1182 pictures (Number of photos for each character shown below. Some pictures have multi-character)
 - Number of photos after image augmentation = 11232
 - Train-Test Split are 70 : 20 : 10 
-  - After Image augmentation, Train : Validation : Test are 87 : 8 : 5
+  - After Image augmentation Train : Validation : Test are 87 : 8 : 5
 - Other settings are shown below
 
 <p align="center" width="100%">
@@ -152,13 +152,13 @@ However, roboflow have tuning limitation. Next step, team will use jupyter in co
 
 
 # Jupyter-colab's outcome:
-- The best score model = Yolov5l - Weight True Freeze False, 0.787
+- The best score model = Model 3, 0.787
 - However, running time is high. The running time of each model is shown below
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Running%20time.png"> </span>
 
-- Alternative model (Balance between score and running time) = Yolov5l - Weight True Freeze 10 
+- Alternative model (Balance between score and running time) = Model 6 
    - Score drop = ~15%
    - Save time = ~40%
 - Observation: 
@@ -167,13 +167,17 @@ However, roboflow have tuning limitation. Next step, team will use jupyter in co
    - Running time: unfreeze layer model  > freeze layer model
    - Running time: allow to update weight model  ~ No update weight model
 
+# Summary
+- Of the 7 models, That was found  the best mAP@0.5 model was Model 3 with the unfreeze model and pretrained weight, which has better results than the Model 2 that unfreeze nodel and don't use pretrained weight.
+Both of these models give very different mA@0.5 values. While the time spent on the train was not significantly different. However, when looking at Model 6 and Model 3, <br>the mAP@0.5 of Model 6 was not significantly different from that of Model 2, but it took much less time to train than Model 2. The 4th and 5th models that freeze both models except the Inference Layer will give inappropriate results. This is because the Head section is related to predicting outcomes. which is not part of fature extraction.
 
 # Next step:
 - Add number of photos
 - Use more features of image augmentation (Cutout, Grayscale, ...)
 - Create standard of Labelling 
 - Comparison to other versions of YoloV5 (YoloV5m,  YoloV5x, ...)
-
+- Adjust hyperarameter
+- 
 # Reference:
 - Object detection:
   - https://medium.com/zylapp/review-of-deep-learning-algorithms-for-object-detection-c1f3d437b852
