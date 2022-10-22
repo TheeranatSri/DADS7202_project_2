@@ -147,6 +147,10 @@ However, Roboflow have tuning limitation. Next step, team will use jupyter in co
     <img width="80%" src="pic/yolov5l_W_True_F10_True_PR_curve.png"> </span>
 
 
+<p align="center" width="100%">
+    <img width="80%" src="pic/"> </span>
+
+
 
 # Jupyter-Colab's outcome:
 - The best score model = Yolov5l - Weight True, Freeze False at 0.787
