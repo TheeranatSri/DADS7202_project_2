@@ -5,7 +5,7 @@ by Capybarista Team
     <img width="80%" src="https://github.com/NattapongTH/DADS7202_project_2/blob/main/pic/Header.jpg"> </span>
 
 # Definition
-- **Model 1** : Roboflow (Default) - (0.7)<br>
+- **Model 1** : Roboflow (Default) <br>
   Yolov5l on app.roboflow.com
 - **Model 2** : Yolov5l - Weight False Freeze False<br>
   Yolov5l unfreeze all layers and don't use pretrain weights.
