@@ -201,7 +201,7 @@ From the six training models, we can summarize as follows;<br>
 - Patcharapruek Watanangura 6410412007 (20%) run model , research, data labeling
 - Nattapong Thanngam 6310422089 (20%) writting report,Proof read, research, data labeling
 - Sukit Vanichrudee 6310422092 (20%) writting report, Proof read, research, data labeling
-- On Minteer 6410414001 (20%) writting report, Proof read, research, data labeling
+- On Minteer 6410414001 (20%) writting report, Proof read, research, data labeling<br>
 This project is a part of subject DADS7202. Data Analytics and Data Science. NIDA
 
 
